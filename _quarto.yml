@@ -47,7 +47,9 @@ website:
           - href: ProjectManagement.qmd
             text: Project Management
           - href: OM1_LPandGraphical.qmd
-            text: OM1- Linear Programming Intro
+            text: OM1 - Linear Programming Intro
+          - href: OM2_LPexamples.qmd
+            text: OM2 - Linear Programming Examples
 
       #     - href: course-syllabus.qmd
       #       text: Syllabus
