@@ -1,0 +1,17 @@
+---
+title: "Decision Theory"
+---
+
+## Reading
+
+[Decision Trees: A Simple Tool to Make Radically Better Decisions](https://blog.hubspot.com/marketing/decision-tree) - HubSpot
+
+[Decision Trees for Decision Making](https://hbr.org/1964/07/decision-trees-for-decision-making) - Harvard Business Review
+
+## Video
+
+[Decision Tree Analysis](https://www.youtube.com/watch?v=ez4yTfUQXG8)
+
+[Expected Value of Perfect Information - Understand and Calculate from a Decision Tree.](https://www.youtube.com/watch?v=1yG5BNAnc7k)
+
+[Bayes Analysis in Excel](https://www.youtube.com/watch?v=ahe8LeI0rp0) - similar to how I did it in lecture

@@ -1,0 +1,164 @@
+---
+title: "Optimization Modeling I"
+format: 
+  html:
+    toc: true
+    number-sections: true
+
+---
+
+# Linear Programming and Graphical solutions
+
+## Readings
+
+[Optimization Modeling with Spreadsheets](https://pepperdine.on.worldcat.org/oclc/905668049)
+
+Chapter 1 - [Introduction to Spreadsheet Models for Optimization](https://lib.pepperdine.edu/login?url=https://search.ebscohost.com/login.aspx?direct=true&AuthType=ip,url,uid,cookie&db=nlebk&AN=1016321&site=ehost-live&scope=site&ebv=EB&ppid=pp_1)
+
+1. Elements of a Model
+2. Spreadsheet Model
+3. A Hierarchy for Analysis
+4. Optimization Software - we use the Excel Solver provided with Excel
+5. Using Solver
+
+[Optimization with Excel Solver](https://www.tutorialspoint.com/excel_data_analysis/advanced_data_analysis_optimization_with_excel_solver.htm) - Tutorials Point
+
+[How to Use Solver in Excel to Optimize Your Solution?](https://www.simplilearn.com/tutorials/excel-tutorial/solver-in-excel) - SimpliLearn
+
+::: {.callout-note collapse="true"}
+
+## Additional Resources
+
+Excel 2013 Bible - John Walkenbach - [Archive eBook](https://archive.org/details/Excel2013Bible/mode/2up)
+
+Excel 2013 Formulas - John Walkenback - [Pepperdine eBook](https://pepperdine.on.worldcat.org/oclc/960202626)
+:::
+
+## Video examples
+
+### Using Excel Solver Add-in
+
+#### Excel Solver - Example and Step-By-Step Explanation
+{{< video https://youtu.be/dRm5MEoA3OI?si=TJuS9YqxpkqC7spV width="640" height="360" >}}
+
+#### Linear Programming Solver Excel
+{{< video https://youtu.be/1RrzqqYlbtA?si=QLunaYI8SSxbG1sk 
+      width="640" height="360" >}}
+
+#### Linear Optimization in Excel with Solver Add-in | LPP in Excel
+{{< video https://youtu.be/AUhFvjqOU1U?si=5UpZ9A24zEi6_-aZ 
+      width="640" height="360" >}}
+
+### Graphical solution methods
+
+#### How to Solve an LP Problem Graphically in Excel
+{{< video https://youtu.be/pQp4GZfoxTo?si=keyiavhcjxryu4kQ 
+      width="640" height="360" >}}
+
+#### How to solve an LPP Problem using Excel - Graphical Method
+{{< video https://youtu.be/O9BwIJpymio?si=Gu_oucq_SqxShREW 
+      width="640" height="360" >}}
+
+## Practice Exercises
+
+1. A firm's marketing department has estimated the demand curve of a product as *y* = 1100 − 7*x*, where *y* represents demand and *x* represents the unit selling price (in dollars) for the relevant decision period. The unit cost is known to be $24. What price maximizes net income from sales of the product?
+---
+
+2. A manufacturer has been making an electronic appliance for the domestic market. Demand for the appliance is price sensitive, and the demand curve is known to follow the linear function D=4000−5P, where D represents annual demand and P represents selling price in the home currency, which is the frank (F). The cost of manufacturing the appliance is 100F.
+
+    For the coming year, the manufacturer is planning to sell the same product in a foreign market, where the currency is the marc (M). From surveys, the demand curve in the foreign country is estimated to follow a different linear function, D = 2000 − 2P, where the price is denominated in marcs.
+
+    All production will be carried out at the manufacturer's domestic plant, with the expectation that the unit cost will remain unchanged. The exchange rate is 1.5 M/F, and the manufacturer plans to offer an equivalent price in both markets.
+    
+    i) If the manufacturer were to operate exclusively in its domestic market, what would be its profit‐maximizing price and its annual profit?
+
+    ii) When the manufacturer sells in both markets at one equivalent price, what is its profit‐maximizing price and its annual profit?
+---
+
+3. A supply company is a wholesale distributor of components for printers, fax machines, scanners, and related equipment. The company stocks expensive spare parts, which dealers prefer not to hold, and offers same‐day delivery on any order. The firm now serves eight dealers in the region and wishes to locate its distribution facility at a central point. In particular, its dealers have each been assigned a location on an x−y grid, and the company would like to find the best location for the distribution facility.
+    i) determine the location that minimizes the sum of the distances from the distribution facility to the dealers.
+    ii) determine the location that minimizes the maximum distance from the distribution facility to any of the dealers.
+    
+    The eight dealers and their grid locations are shown in the following table:
+
+    | Dealer | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+    |:-----|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+    |X-location | 25 | 82 | 10 | 27 | 93 | 14 | 68 | 147 |
+    |y-location | 325 | 365 | 715 | 585 | 685 | 163 | 149 | 192 |
+
+    : **Dealer locations** {.light}
+---
+
+4. An appliance dealer offers free delivery in any one of its five Texas cities, which will be serviced by a single warehouse. The distance from the warehouse site to a given city is considered to be a good proxy for the annual cost of providing delivery service, and the objective is to minimize the total distance from the warehouse to the five cities. The cities are treated as if they were each a single point located at a specific latitude and longitude, as listed in the table below.
+
+    When locations are specified in terms of latitude (*Lat*) and longitude (*Lon*), a good approximation for the distance (in miles) between two locations is the following:
+      $$
+      Distance = \sqrt{(x^2 + y^2)}
+      $$
+
+    | City | Austin | Houston | Midland | Tyler | Waco |
+    |:-----|:---:|:---:|:---:|:---:|:---:
+    | Latitude | 30.3 | 30.0 | 32.0 | 32.4 | 31.6 |
+    | Longitude | 97.9 | 95.4 | 102.2 | 95.4 | 97.2 |
+
+    : **City Locations** {.light}
+  
+    What is the best location (latitude and longitude) for the warehouse?
+---
+
+5. A private plane went down off the coast and sank during a bad storm although rescuers were able to save its crew. Aboard the plane was a transmitter that was able to send out a signal for 72 hours after the plane wentdown. When the weather cleared, searchers went out in three different boats carrying equipment that could detect the signal and estimate its distance from the transmitter. The locations of the three boats on an *x*−*y* grid and their distance estimates (in miles) are shown in the table below.
+
+    | Searcher | 1 | 2 | 3 |
+    |:---|:---:|:---:|:---:|
+    |x-location | 25 | 35 | 70 |
+    |y-location | 60 | 40 | 10 |
+    | Estimate | 29.3 | 34.7 | 15.5 |
+
+    : **Boat Locations**  {.light}
+
+    The estimates are known to be unreliable, but the information may sufficient to locate the sunken plane, at least approximately. What is its *x*−*y*‐location?
+---
+
+6. A bank offers a credit card that can be used in various locations. The bank's analysts believe that the percentage P of accounts receivable collected by t months after credit is issued increases at a decreasing rate. Historical data suggest the following function:
+    $$
+    P=0.9(1-e^{-0.6t})
+    $$
+
+    The average credit issued in any 1 month is $125 million, and historical experience suggests that for new credit issued in any month, collection efforts cost $1 million/month.
+    i) determine the number of months that collection efforts should be continued if the objective is to maximize the net collections (dollars collected minus collection costs). Allow for fractional months.
+    ii) under the optimal policy in (1), what percentage of accounts receivable should be collected?
+---
+
+7. A firm owns five manufacturing plants that are responsible for the quarterly production of 50,000 pounds of an industrial solvent. The production process exhibits diseconomies of scale. At plant *p*, the cost of making *x* thousand pounds of the solvent is approximated by the quadratic function $f(x)=(1/c_p)x^2$ . The parameters $c_p$ are plant dependent, as shown in the following table.
+
+    | p | 1 | 2 | 3 | 4 | 5 |
+    |:---:|:---:|:---:|:---:|:---:|:---:|
+    | $c_p$ | 3 | 6 | 4 | 8 | 5 |
+
+    : **$c_p$ by plant**  {.light}
+
+    How should production be allocated among the five plants in order to minimize the total cost of meeting the volume requirement?
+---
+
+8. Four products are routed through a machining center that is notorious for its delays. Each product has had stable demand for some time, so that average weekly demand is predictable over a 3–6 months' time frame. however, in the short run, demand fluctuates a great deal, and the load at the machining center varies considerably. The production control system dictates the lot size for each of the products. These quantities are shown, along with other relevant information, in the following table.
+
+    | Product No. | Demand (weekly) | Setup (hours) | Run time (hrs/thousand) | Lot size |
+    |:---|:---:|:---:|:---:|:---:|
+    | 1 | 100 | 3 | 30 | 100 |
+    | 2 | 500 | 15 | 45 | 500 |
+    | 3 | 50 | 6 | 75 | 100 |
+    | 4 | 250 | 24 | 150 | 1500 |
+
+    : **Production information by product** {.light}
+
+    With the current lot sizes, the machining center is running at a utilization of about 76%, but long lead times, sometimes over 2 weeks, have discouraged production planners from increasing its load. (A week contains 120 productive hours.) In the past, lead times spiraled out of control when utilization grew to around 80%.
+
+    A [lead time model](files/LeadTimeModel-Baker1_6.xlsx) for this problem has been constructed on a spreadsheet. The model permits the user to select lot sizes and thereby influence the average lead time through the bottleneck work center. The lead time prediction is based on advanced modeling techniques, but the details of the model are not of primary importance.
+
+    What is the shortest possible lead time, and what lot sizes achieve this value?
+---
+
+9. A library building is about to undergo some renovations that will improve its structural integrity. As part of the process, a number of steel beams will be carried through the existing book cases from a broad, open area around the entry point. The central aisle between the bookcases is 10 feet wide, while the side aisles (which run perpendicular to the central aisle) are 6 ft wide. The renovation will require that steel beams be carried through the stacks, down the main aisle and turning into the smaller aisles. What is the longest steel beam that can be carried horizontally through this space to a construction point along the outer walls?
+---
+
+10. The customers of a particular company are located throughout an area comprised of **S** square miles, and they are serviced from **k** warehouses. On average, the distance in miles between a warehouse and customer is given by the formula $\sqrt{(S/k)}$. The annual capital cost of building a warehouse is $40,000 and the annual operating cost of running a warehouse is $60,000. Annual shipping costs average $1 per mile per customer.  Suppose that the current market size is 250,000 customers, spread out over an area of 500 square miles. What is the optimal number of warehouses for the firm to operate?

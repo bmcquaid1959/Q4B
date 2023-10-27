@@ -1,0 +1,13 @@
+---
+title: "Project Management"
+---
+
+## Reading
+
+[Forward Pass and Backward Pass in Project Scheduling](https://tiemchart.com/blogs/training/forward-pass-and-backward-pass/) - Tiem Chart
+
+[Calculating Float with Forward and Backward Pass](https://www.leancxscore.com/calculating-float-with-forward-and-backward-pass/) - Lean CX
+
+## Video
+
+[Use forward and backward pass to determine project duration and critical path](https://www.youtube.com/watch?v=4oDLMs11Exs) - Engineer4free
