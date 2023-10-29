@@ -58,12 +58,12 @@ gantt
 | 10/07 | WLA | Simulation | |
 | 10/10 | WLA | Simulation | |
 | 10/17 | Async | Decision Analysis | |
-| 10/24 | WLA | Project Management |  Quiz 2 distributed |
-| 10/31 | Async | Optimization Modeling | Quiz 3 distributed |
-| 11/07 | WLA | Network & Integer Models | Quiz 2 Due <br> Presentation I |
-| 11/14 | Async | Sensitivity Analysis | Quiz 3 Due <br> Quiz 4 Distributed |
-| 11/21 |  | *No class meeting* | Quiz 5 distributed |
-| 11/28 | WLA | Review and Catch up | Quiz 4 Due <br> Presentation II |
-| 12/05 | WLA | Final Exam | Quiz 5 due <br> Final |
+| 10/24 | WLA | Project Management |  [Quiz 2 distributed](https://courses.pepperdine.edu/x/hEdXtl) |
+| 10/31 | Async | Optimization Modeling | [Quiz 3 distributed](https://courses.pepperdine.edu/x/hEdXtl) |
+| 11/07 | WLA | Network & Integer Models | [Quiz 2 due](https://courses.pepperdine.edu/x/hEdXtl) <br> Presentation I |
+| 11/14 | Async | Sensitivity Analysis | [Quiz 3 due](https://courses.pepperdine.edu/x/hEdXtl) <br> [Quiz 4 distributed](https://courses.pepperdine.edu/x/hEdXtl) |
+| 11/21 |  | *No class meeting* | [Quiz 5 distributed](https://courses.pepperdine.edu/x/hEdXtl) |
+| 11/28 | WLA | Review and Catch up | [Quiz 4 due](https://courses.pepperdine.edu/x/hEdXtl) <br> Presentation II |
+| 12/05 | WLA | Final Exam | [Quiz 5 due](https://courses.pepperdine.edu/x/hEdXtl) <br> Final |
 
 : {.light}
