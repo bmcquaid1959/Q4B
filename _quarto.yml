@@ -3,7 +3,7 @@ project:
 
 website:
   site-url: ""
-  repo-url: https:github.com
+  repo-url: https://github.com/bmcquaid1959/Q4B
   repo-actions: [edit, issue]
   page-navigation: true
 
@@ -21,7 +21,7 @@ website:
     align: center
     tools:
       - icon: github
-        href: https://github.com/sta210-s22
+        href: https://github.com/bmcquaid1959/Q4B
         text: "GitHub organization"
       - icon: code-square
         href: https://cmgr.oit.duke.edu/containers
@@ -40,6 +40,8 @@ website:
     search: true
     collapse-level: 1
     contents:
+      - href: index.qmd
+        text: Home
       - section: "Course information"
         contents:
           - href: DecisionTheory.qmd

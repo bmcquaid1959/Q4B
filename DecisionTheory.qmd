@@ -1,5 +1,9 @@
 ---
 title: "Decision Theory"
+format: 
+  html:
+    toc: true
+    number-sections: true
 ---
 
 ## Reading
@@ -10,8 +14,17 @@ title: "Decision Theory"
 
 ## Video
 
-[Decision Tree Analysis](https://www.youtube.com/watch?v=ez4yTfUQXG8)
+### Decision Tree Analysis
 
-[Expected Value of Perfect Information - Understand and Calculate from a Decision Tree.](https://www.youtube.com/watch?v=1yG5BNAnc7k)
+{{< video https://www.youtube.com/watch?v=ez4yTfUQXG8 width="640" height="360" >}}
 
-[Bayes Analysis in Excel](https://www.youtube.com/watch?v=ahe8LeI0rp0) - similar to how I did it in lecture
+### Expected Value of Perfect Information - Understand and Calculate from a Decision Tree
+
+{{< video https://www.youtube.com/watch?v=1yG5BNAnc7k width="640" height="360" >}}
+
+### Bayes Analysis in Excel
+
+Similar to how I do it in lecture.
+
+{{< video https://www.youtube.com/watch?v=ahe8LeI0rp0 width="640" height="360" >}}
+

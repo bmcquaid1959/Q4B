@@ -1,5 +1,10 @@
 ---
 title: "Project Management"
+format: 
+  html:
+    toc: true
+    number-sections: true
+
 ---
 
 ## Reading
@@ -10,4 +15,7 @@ title: "Project Management"
 
 ## Video
 
-[Use forward and backward pass to determine project duration and critical path](https://www.youtube.com/watch?v=4oDLMs11Exs) - Engineer4free
+### Use forward and backward pass to determine project duration and critical path
+
+{{< video https://www.youtube.com/watch?v=4oDLMs11Exs width="640" height="360" >}}
+

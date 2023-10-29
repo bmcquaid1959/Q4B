@@ -1,11 +1,69 @@
 ---
-title: "Q4B"
+title: "Analytics for Business Decisions "
+format: 
+  html:
+    toc: true
+    number-sections: true
+    number-depth: 3
+
 ---
 
-This is a Quarto website.
+# Class Schedule
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+``` {mermaid}
+gantt
+    %% https://mermaid.js.org/syntax/gantt.html
+    dateFormat  MM-DD
+    axisFormat  %b-%d
 
-```{r}
-1 + 1
+    title       DESC607 Deliverable schedule
+    %% excludes    weekends
+    %% (`excludes` accepts specific dates in YYYY-MM-DD format, days of the week ("sunday") or "weekends", but not the word "weekdays".)
+
+    section Class Content
+    Simulation                :         10-07, 1d        
+    Simulation                :         10-10, 1d        
+    Decision Trees            :         done, 10-17, 1d
+    Project Management        :         done, 10-17, 1d
+    Project Management II     :         10-24, 1d
+    Optimization Modeling     :         done, 10-31, 1d
+    Network & Integer Modeling:         11-07, 1d
+    Sensitivity Analysis      :         done, 11-14, 1d
+    Thanksgiving - no meeting :         milestone, 11-21, 0d
+    Review & catch up         :         11-28, 1d
+    Final Exam                :         12-05, 1d
+    
+    section Deliverables
+    Quiz 1 - Optional                   :10-10
+    Quiz 2 - Simulation                 :crit, 10-25, 13d
+    Quiz 2 - Due by 6 pm                :milestone, crit, 11-07
+    Presentation 1 - Simulation         :10-10, 28d
+    Presentation 1 - Simulation         :milestone, 11-07 
+    Quiz 3 - Dec Trees & Project Mgmt   :crit, 11-02, 13d
+    Quiz 3 - Due by 6 pm             :milestone, crit, 11-14
+    Quiz 4 - Optimization Modeling      :crit, 11-15, 13d
+    Quiz 4 - Due by 6 pm             :milestone, crit, 11-28
+    Quiz 5 - Network & Integer Modeling :crit, 11-21, 13d
+    Quiz 5 - Due by 6 pm             :milestone, crit, 12-05
+    Presentation 2 - Optimization Modeling    :11-07, 21d
+    Presentation 2 - Optimization Modeling    :milestone, 11-28
+    Final Exam - In class                     :12-05, 1d
+
 ```
+
+# Deliverable schedule
+
+| Date | Location | Content | Deliverable | 
+|:----:|:-----:|:-----:|:-----:|
+| 10/07 | WLA | Simulation | |
+| 10/10 | WLA | Simulation | |
+| 10/17 | Async | Decision Analysis | |
+| 10/24 | WLA | Project Management |  Quiz 2 distributed |
+| 10/31 | Async | Optimization Modeling | Quiz 3 distributed |
+| 11/07 | WLA | Network & Integer Models | Quiz 2 Due <br> Presentation I |
+| 11/14 | Async | Sensitivity Analysis | Quiz 3 Due <br> Quiz 4 Distributed |
+| 11/21 |  | *No class meeting* | Quiz 5 distributed |
+| 11/28 | WLA | Review and Catch up | Quiz 4 Due <br> Presentation II |
+| 12/05 | WLA | Final Exam | Quiz 5 due <br> Final |
+
+: {.light}

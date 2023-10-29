@@ -1,9 +1,11 @@
 ---
-title: "Optimization Modeling II"
+title: ""
 format: 
   html:
     toc: true
     number-sections: true
+    number-depth: 3
+
 ---
 
 # Linear Models - Allocation, Covering, and Blending
@@ -123,7 +125,7 @@ I suggest trying 2.2 through 2.10, pages 57 - 63. These are very representative 
     | Risk coefficient | 1  | 5  | 4  | 8  | 6  | 3  |
     | Growth Potential | 0  | 18 | 10 | 32 | 20 | 7  |
 
-    : **Portfollio datat by alternative** {.light}
+    : **Portfollio data by alternative** {.light}
 
     The manager wishes to maximize the return on a $3 million portfolio, subject to the following restrictions:
     * The weighted average length should not exceed 7 years.
@@ -133,4 +135,143 @@ I suggest trying 2.2 through 2.10, pages 57 - 63. These are very representative 
     i) What are the optimal return and the optimal allocation of investment funds? (Give the optimal return in dollars and also as a percentage.)
     ii) What is the marginal rate of return? In other words, what would be the return on the next dollar invested if there were one more dollar in the portfolio?
     iii) For additional investment beyond the original $3 million, how does the optimal allocation change?
+---
+
+5. An oil company produces three brands of oil: regular, multigrade, and supreme. Each brand of oil is composed of one or more of four crude stocks, each having a different lubrication index. The relevant data concerning the crude stocks are as follows.
+
+    | Crude Stock | Lubrication Index | Cost ($/Barrel) | Daily Supply (Barrels) |
+    |:---|:--:|:--:|:--:|
+    | 1 | 20 | 7.1 | 1000 |
+    | 2 | 40 | 8.5 | 1100 |
+    | 3 | 30 | 7.7 | 1200 |
+    | 4 | 55 | 9 | 1100 |
+
+    : **Crude stock characteristics** {.light}
+    
+    Each brand of oil must meet a minimum standard for a lubrication index, and each brand thus sells at a different price. The relevant data concerning the three brands of oil are as follows.
+
+    | Brand | Minimum Lubrication Index | Selling Price ($/Barrel) | Daily Demand (Barrels) |
+    |:---|:--:|:--:|:--:|
+    | Regular | 25 | 8.5 | 2000 |
+    | Multigrade | 35 | 9 | 1500 |
+    | Supreme | 50 | 10 | 750 |
+
+    : **Brand requirements** {.light}
+
+
+    The task is to determine an optimal output plan for a single day, assuming that production can be either sold or else stored at negligible cost. The daily demand figures are subject to alternative interpretations. Investigate the following.
+    i) The daily demands represent potential sales. In other words, the model should contain demand ceilings (upper limits). What is the optimal profit?
+    ii) The daily demands are strict obligations. In other words, the model should contain demand constraints that are met precisely. What is the optimal profit?
+    iii) The daily demands represent minimum sales commitments, but all output can be sold. In other words, the model should permit production to exceed the daily commitments. What is the optimal profit?
+---
+
+6. A Coffee Company blends four component beans into three final blends of coffee: one is sold to luxury hotels, another to restaurants, and the third to supermarkets for store-label brands. The company has four reliable bean supplies: Argentine, Peruvian, Brazilian, and Chilean. The table below summarizes the very precise recipes for the final coffee blends, the cost and weekly availability information for the four components, and the wholesale price per pound of the final blends. the percentages indicate the fraction of each component to be used in each blend.
+
+    | Component | Hotel | Restaurant | Market | Cost per pound ($) | Pounds Available |
+    |:-------|:--:|:--:|:--:|:--:|:--:|
+    | Argentine | 20% | 35% | 10% | $0.60 | 40,000 |
+    | Peruvian | 40% | 15% | 35% | $0.80 | 25,000 |
+    | Brazilian | 15% | 20% | 40% | $0.55 | 20,000 |
+    | Chilean | 25% | 30% | 15% | $0.70 | 45,000 |
+    | Wholesale price per pound | $1.25 | $1.50 | $1.40 | | |
+    
+    : **Bean blends into final coffees** {.light}
+
+    The processor’s plant can handle no more than 100,000 pounds per week, and the company would like to operate at or near capacity, if possible. Selling the final blends is not a problem, although the marketing department requires minimum production levels of 10,000, 25,000, and 30,000 pounds, respectively, for the hotel, restaurant, and market blends.
+    i) To maximize weekly profit, how many pounds of each component should be purchased?
+    ii) How would the optimal profit change if there were a 1000-pound increase in the availability of Argentine beans? Peruvian? Brazilian? Chilean?
+---
+
+7. An Auto Company produces four types of cars: subcompact, compact, intermediate, and luxury. It also produces trucks and vans. Vendor capacities limit total production capacity to at most 1,200,000 vehicles per year. Subcompacts and compacts are built together in a facility with a total annual capacity of 620,000 cars. Intermediate and luxury cars are produced in another facility with capacity of 400,000; and the truck/van facility has a capacity of 275,000. It's marketing strategy requires that subcompacts and compacts must constitute at least half of the product mix for the four car types. Profit margins, market potential, and fuel efficiency are summarized below.
+
+
+    | Type | Profit Margin ($/Vehicle) | Potential Sales | Fuel Efficiency (mpg) |
+    |:-----|:--:|:--:|:--:|
+    | Subcompact   | $1,500 | 600,000 | 40 |
+    | Compact      | $2,250 | 400,000 | 34 |
+    | Intermediate | $2,500 | 300,000 | 15 |
+    | Luxury       | $4,000 | 225,000 | 12 |
+    | Truck        | $4,000 | 325,000 | 20 |
+    | Van          | $2,000 | 100,000 | 25 |
+    
+    : **Requirements by vehicle** {.light}
+
+    The Corporate Average Fuel Efficiency (CAFE) standards require an average fleet fuel efficiency of at least 27 MPG. The company would like to use a linear programming model to understand the implications of government and corporate policies on its production plans.
+
+    i) What is the optimal annual profit for the company?
+    ii) How much would the annual profit drop if the fuel efficiency requirement were raised to 28 MPG?
+---
+
+8. A sudden increase in the demand for smoke detectors has left an alarm company with insufficient capacity to meet demand. The company has seen monthly demand for its electronic and battery-operated detectors rise to 20,000 and 10,000, respectively, and they wish to continue meeting demand. The production process involves three departments: fabrication, assembly, and shipping. The relevant quantitative data on production and prices are summarized below.
+
+    | Department | Monthly Hours Available | Hours/Unit (Electronic) | Hours/Unit (Battery) |
+    |:-----|:--:|:--:|:--:|
+    | Fabrication  | 2000 | 600,000 | 40 |
+    | Assembly     | 4200 | 400,000 | 34 |
+    | Shipping     | 2500 | 300,000 | 15 |
+    | Variable cost/unit |  | $18.80 | $16.00 |
+    | Retail Price       |  | $29.50 | $28.00 |
+
+    : **Production and pricing data** {.light}
+
+    The company also has the option to obtain additional units from a subcontractor, who has offered to supply up to 20,000 units per month in any combination of electronic and battery-operated models, at a charge of $21.50 per unit. For this price, the subcontractor will test and ship its models directly to the retailers without using Acme’s production process.
+    i) What are the maximum profit and the corresponding make/buy levels? (This is a planning model, and fractional decisions are acceptable.)
+    ii) Trace the effects of increasing fabrication capacity by 10%. How will the optimal make/buy mix change? How will the optimal profit change?
+---
+
+9. Cox Cable Company needs to lease warehouse storage space for 5 months at the start of the year. It knows how much space will be required in each month, and it can purchase a variety of lease contracts to meet these needs. For example, it can purchase 1 -month leases in each month from January to May. It can also purchase 2-month leases in January through April, 3-month leases in January through March, 4-month leases in January and February, or a 5-month lease in January. In total, there are 15 possible leases it could use. It must decide which leases to purchase and how many square feet to purchase on each lease. 
+
+    Since the space requirements differ month to month, it may be economical to lease only the amount needed each month on a month-by-month basis. On the other hand, the monthly cost for leasing space for additional months is much less than for the first month, so it may be desirable to lease the maximum amount needed for the entire 5 months. Another option is the intermediate approach of changing the total amount of space leased (by adding a new lease and/or having an old lease expire) at least once but not every month. Two or more leases for different terms can begin at the same time.
+
+    The space requirements (in square feet) and the leasing costs (in dollars per thousand square feet) are given in the two tables below.
+
+    | Month |	Jan |	Feb |	Mar |	Apr |	May |
+    |:------ |:----:|:----:|:----:|:----:|:----:|
+    |	Requirements | 15.000 |	10,000 | 20,000 |5,000 | 25,000 |
+
+    : **Space Requirements (sq ft)** {.light}
+
+    | Lease length | 1 month | 2 months | 3 months | 4 months |	5 months |	
+    |:------ |:----:|:----:|:----:|:----:|:----:|
+    |	Lease cost | 280 |	450 |	600 |	730 |	820 |	
+
+    : **Leasing costs ($/000 sf** {.light}
+
+    The task is to find a leasing schedule that provides the necessary amounts of space at the minimum cost.
+    i) Determine the optimal leasing schedule and the optimal total cost.
+    ii) Trace the effects of increasing the space required for January. How will the leasing schedule change? How will the total cost change?
+---
+
+10. A Tire Company produces four lines of tires: the economy, the glass-belted, the snow, and the radial tire. The problem it faces is to schedule two shifts of production during the last quarter of the calendar year. The production process primarily involves the use of vulcanization, fabrication, and plastometer equipment, but the limiting resource is the availability of the vulcanization machines. The four tire lines require different amounts of time at vulcanization, as tabulated below.
+
+    | Tire	| Economy |	Glass	| Snow	| Radial |
+    |:------|:----:|:----:|:----:|:----:| 
+    | Hours/tire	| 4.5	| 5	| 5.5	| 6 | 
+    
+    : **Vulcanization time required** {.light}
+        
+    A sales forecast is available, breaking down predicted sales by tire type and by month.
+
+    | Sales	| October	| November	| December | 
+    |:------|:-----:|:-----:|:-----:|
+    | Econ.	| 8,000	| 7,000	| 6,000 | 
+    | Glass	| 18,000	| 16,000	| 18,000 | 
+    | Snow	| 4,000	| 15,000	| 15,000 | 
+    | Radial| 6,000	| 5,000	| 8,000 | 
+    
+    : **Sales forecast** {.light}
+    
+    In addition, the number of hours of vulcanizing time, for each shift and for each month, is also known.
+
+    | | October	| November | December	| 
+    |:------|:-----:|:-----:|:-----:|
+    | Shift 1 | 110,000 | 130,000 | 120,000 |
+    | Shift 2 | 100,000 | 120,000 | 115,000 |
+
+    : **Hours vulcanizing time required by shift** {.light}
+    
+    The labor cost of operating the vulcanizing machines is $10 per hour during the first shift and $14 per hour during the second shift. The other relevant cost is storage: It costs $4 per month for storage and handling at the warehouse, regardless of tire type. This cost is incurred when production is scheduled in advance of demand to ensure that demand is met on time.
+    i) What production plan will minimize cost and meet demand at Seaboch Tire?
+    ii)	How would the solution in (a) change if sales for each tire in December were 10% higher?
+---
 
