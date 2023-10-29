@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Q4B -</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./OM1_LPandGraphical.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./DecisionTheory.html">Course information</a></li><li class="breadcrumb-item"><a href="./OM2_LPexamples.html">OM2 - Linear Programming Examples</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/logoQ4B.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/bmcquaid1959/Q4B" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="quarto-navigation-tool px-1" aria-label="RStudio Containers"><i class="bi bi-code-square"></i></a>
+    <div class="dropdown">
+      <a href="" title="Sakai" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Sakai"><i class="bi bi-person-fill"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/13b6446a-a6c6-4222-8cfb-c36d1f70802b">
+            Discussion forum
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/page/aec742dc-2972-4f02-a35b-1dd3315af889">
+            Gradescope
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/69078433-67a6-4054-a2e7-9e6c202ecdc3/">
+            Gradebook
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course information</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./DecisionTheory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Decision Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ProjectManagement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project Management</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./OM1_LPandGraphical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OM1 - Linear Programming Intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./OM2_LPexamples.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">OM2 - Linear Programming Examples</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#linear-models---allocation-covering-and-blending" id="toc-linear-models---allocation-covering-and-blending" class="nav-link active" data-scroll-target="#linear-models---allocation-covering-and-blending"><span class="header-section-number">1</span> Linear Models - Allocation, Covering, and Blending</a>
+  <ul class="collapse">
+  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><span class="header-section-number">1.1</span> Readings</a></li>
+  <li><a href="#video-examples" id="toc-video-examples" class="nav-link" data-scroll-target="#video-examples"><span class="header-section-number">1.2</span> Video examples</a>
+  <ul class="collapse">
+  <li><a href="#product-mix-example" id="toc-product-mix-example" class="nav-link" data-scroll-target="#product-mix-example"><span class="header-section-number">1.2.1</span> Product Mix Example</a></li>
+  <li><a href="#portfolio-optimization" id="toc-portfolio-optimization" class="nav-link" data-scroll-target="#portfolio-optimization"><span class="header-section-number">1.2.2</span> Portfolio Optimization</a></li>
+  <li><a href="#blending-diet-problem" id="toc-blending-diet-problem" class="nav-link" data-scroll-target="#blending-diet-problem"><span class="header-section-number">1.2.3</span> Blending Diet problem</a></li>
+  </ul></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises"><span class="header-section-number">1.3</span> Practice Exercises</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bmcquaid1959/Q4B/edit/main/OM2_LPexamples.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bmcquaid1959/Q4B/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="linear-models---allocation-covering-and-blending" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Linear Models - Allocation, Covering, and Blending</h1>
+<section id="readings" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="readings"><span class="header-section-number">1.1</span> Readings</h2>
+<p><a href="https://pepperdine.on.worldcat.org/oclc/905668049">Optimization Modeling with Spreadsheets</a></p>
+<p>Chapter 2 - LP - <a href="https://lib.pepperdine.edu/login?url=https://search.ebscohost.com/login.aspx?direct=true&amp;AuthType=ip,url,uid,cookie&amp;db=nlebk&amp;AN=1016321&amp;site=ehost-live&amp;scope=site&amp;ebv=EB&amp;ppid=pp_21">Allocation, covering, and blending models</a></p>
+<ol type="1">
+<li>Linear models - good basic information about setup and linearity</li>
+<li>Allocation models - resource allocation and product mix examples</li>
+<li>Covering models - minimizing an ojbective subject to ≥ constraints - a diet example and a staff-scheduling problem</li>
+<li>Blending Models - manipulate quotient (proportion) into standard form first, then provides typical example</li>
+<li>Handling errors - good discussion of how to troubleshoot a model</li>
+</ol>
+<p><a href="https://towardsdatascience.com/asset-allocation-model-in-linear-programming-problem-lpp-1c821256ccba">Asset Allocation Model in Linear Programming Problem (LPP)</a> - Towards Data Science - a nicely complext example of using LP</p>
+<p><a href="https://www.simplilearn.com/tutorials/excel-tutorial/solver-in-excel">How to Solver Blending LP Problems with Excel Solver</a> - Exceldemy - a thorough setup of a blending problem using LP</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Additional Resources
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Excel 2013 Bible - John Walkenbach - <a href="https://archive.org/details/Excel2013Bible/mode/2up">Archive eBook</a></p>
+<p>Excel 2013 Formulas - John Walkenback - <a href="https://pepperdine.on.worldcat.org/oclc/960202626">Pepperdine eBook</a></p>
+</div>
+</div>
+</div>
+</section>
+<section id="video-examples" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="video-examples"><span class="header-section-number">1.2</span> Video examples</h2>
+<section id="product-mix-example" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="product-mix-example"><span class="header-section-number">1.2.1</span> Product Mix Example</h3>
+<p>The two collapsable problem descriptions are background for the video below.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Product Mix Example 3.1 description: (prior problem)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The PC Tech company assembles and then tests two models of computers, Basic and XP. For the coming month, the company wants to decide how many of each model to assembly and then test. No computers are in inventory from the previous month, and because these models are going to be changed after this month, the company doesn’t want to hold any inventory after this month. It believes the most it can sell this month are 600 Basics and 1200 XPs. Each Basic sells for $300 and each XP sells for $450. The cost of component parts for a Basic is $150; for an XP it is $225. Labor is required for assembly and testing. There are at most 10,000 assembly hours and 3000 testing hours available. Each labor hour for assembling costs $11 and each labor hour for testing costs $15. Each Basic requires five hours for assembling and one hour for testing, and each XP requires six hours for assembling and two hours for testing. PC Tech wants to know how many of each model it should produce (assemble and test) to maximize its net profit, but it cannot use more labor hours than are available, and it does not want to produce more than it can sell. Objective To use LP to find the best mix of computer models that stays within the company’s labor availability and maximum sales constraints.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Product Mix Example 3.2 description: (the problem worked in the video)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>As in the previous example, PC Tech must decide how many of each of its computer models to assemble and test, but there are now eight available models, not just two. Each computer must be assembled and then tested, but there are now two lines for testing. The first line tends to test faster, but its labor costs are slightly higher, and each line has a certain number of hours available for testing. Any computer can be tested on either line. The inputs for the model are same as before: (1) the hourly labor costs for assembling and testing, (2) the required labor hours for assembling and testing any computer model, (3) the cost of component parts for each model, (4) the selling prices for each model, (5) the maximum sales for each model, and (6) labor availabilities. These input values are listed in the file Product Mix 2.xlsx. As before, the company wants to determine the product mix that maximizes its total net profit. Objective To use LP to find the mix of computer models that maximizes total net profit and stays within the labor hour availability and maximum sales constraints.</p>
+</div>
+</div>
+</div>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/OK-SjDYAIdU" width="640" height="360" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="portfolio-optimization" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="portfolio-optimization"><span class="header-section-number">1.2.2</span> Portfolio Optimization</h3>
+<p>This is an EXCELLENT coverage of Portfolio Optimization using LP (allocation modeling). The actual LP formulation is the last 3 minutes or so, the rest you’ll learn in finance, but I suggest watching it as part of this exercise.</p>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/XQS17YrZvEs" width="640" height="360" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="blending-diet-problem" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="blending-diet-problem"><span class="header-section-number">1.2.3</span> Blending Diet problem</h3>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/BKf1UlNmodQ" width="640" height="360" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+</section>
+<section id="practice-exercises" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="practice-exercises"><span class="header-section-number">1.3</span> Practice Exercises</h2>
+<p><a href="https://lib.pepperdine.edu/login?url=https://search.ebscohost.com/login.aspx?direct=true&amp;AuthType=ip,url,uid,cookie&amp;db=nlebk&amp;AN=1016321&amp;site=ehost-live&amp;scope=site&amp;ebv=EB&amp;ppid=pp_57">Chapter 2 exercises</a></p>
+<p>I suggest trying 2.2 through 2.10, pages 57 - 63. These are very representative of problems you would be expected solve.</p>
+<ol start="2" type="1">
+<li><p>A local pizza shop that plans to make all of its sales this Saturday from its sidewalk tables during the town’s holiday parade. On this occasion, the shop’s owners know that customers will buy by the slice and any kind of pizza offered will sell. The Pizza Man offers plain, meat, vegetable, and supreme pizzas. Each variety has its own requirement for sauce, cheese, dough, and toppings (in ounces, as shown in the table), and each has its own selling price. The table shows the quantity of each ingredient for each offering of pizza as well as the amount of each ingredient available and the price of each offering.</p>
+<table class="table-light table">
+<caption><strong>Pizza Production Information</strong></caption>
+<colgroup>
+<col style="width: 23%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Ingredient</th>
+<th style="text-align: center;">Plain</th>
+<th style="text-align: center;">Meat</th>
+<th style="text-align: center;">Vegetable</th>
+<th style="text-align: center;">Supreme</th>
+<th style="text-align: center;">Available</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Dough</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">200</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sauce</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">90</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cheese</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">120</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Meat</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">75</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vegetables</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Price</td>
+<td style="text-align: center;">$8</td>
+<td style="text-align: center;">$10</td>
+<td style="text-align: center;">$12</td>
+<td style="text-align: center;">$15</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>The Pizza Man expects to use the entire stock of ingredients and wishes to maximize revenue from its sales.</p>
+<ol type="i">
+<li>What mix of pizzas should be made? (Assume that fractions can be sold and that all will be sold.)</li>
+<li>What is the maximum sales revenue?</li>
+<li>Which ingredients are economically scarce (which ones limit profits)?</li>
+</ol></li>
+</ol>
+<hr>
+<ol start="3" type="1">
+<li><p>The operations manager at a bank has a staffing problem. Demand for clerical staff varies throughout the day, but 24-hour coverage is necessary because the bank handles a number of international transactions. A recent study has shown how many clerical workers are needed each hour in the course of the day, as in the table below. (Hour 1 is from midnight to 1 am.)</p>
+<table class="table-light table">
+<caption><strong>Minimum staffing by hour</strong></caption>
+<colgroup>
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Hour</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: center;">10</th>
+<th style="text-align: center;">11</th>
+<th style="text-align: center;">12</th>
+<th style="text-align: center;">13</th>
+<th style="text-align: center;">14</th>
+<th style="text-align: center;">15</th>
+<th style="text-align: center;">16</th>
+<th style="text-align: center;">17</th>
+<th style="text-align: center;">18</th>
+<th style="text-align: center;">19</th>
+<th style="text-align: center;">20</th>
+<th style="text-align: center;">21</th>
+<th style="text-align: center;">22</th>
+<th style="text-align: center;">23</th>
+<th style="text-align: center;">24</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Staff</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+</tr>
+</tbody>
+</table>
+<p>Under current labor policies, clerical workers may be assigned to any one of six shifts, some of which overlap. The shifts and salary costs are as follows:</p>
+<table class="table-light table">
+<caption><strong>Daily cost per shift</strong></caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Shift</th>
+<th style="text-align: center;">Daily Cost ($)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2 am - 10 am</td>
+<td style="text-align: center;">160</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6 am - 2 pm</td>
+<td style="text-align: center;">145</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10 am - 6 pm</td>
+<td style="text-align: center;">148</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2 pm - 10 pm</td>
+<td style="text-align: center;">154</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6 pm - 2 am</td>
+<td style="text-align: center;">156</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10 pm - 6 am</td>
+<td style="text-align: center;">160</td>
+</tr>
+</tbody>
+</table>
+<ol type="i">
+<li>Provide the operations manager with a schedule that will deploy enough staff to meet the hourly requirements at the minimum daily total cost.</li>
+<li>In the optimal schedule, how many hourly periods are overstaffed?</li>
+</ol></li>
+</ol>
+<hr>
+<ol start="4" type="1">
+<li><p>A portfolio manager has developed a list of six investment alternatives for a multi-year planning horizon. These are Treasury bills, Common stock, Corporate bonds, Real estate, Growth funds, and Savings and loans. These investments and their various financial factors are described below. In the table, the return is given as an annual percentage, and the length represents the estimated number of years required for the annual return to be realized. The risk coefficient is a subjective estimate representing the manager’s appraisal of the relative safety of each alternative, on a scale of 1-10 (1=safe, 10-risky). The growth potential is an estimate of the potential increase in value over the horizon.</p>
+<table class="table-light table">
+<caption><strong>Portfollio data by alternative</strong></caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Alternative</th>
+<th style="text-align: center;">TB</th>
+<th style="text-align: center;">CS</th>
+<th style="text-align: center;">CB</th>
+<th style="text-align: center;">RE</th>
+<th style="text-align: center;">GF</th>
+<th style="text-align: center;">SL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Length (years)</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Annual return (%)</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Risk coefficient</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Growth Potential</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">7</td>
+</tr>
+</tbody>
+</table>
+<p>The manager wishes to maximize the return on a $3 million portfolio, subject to the following restrictions:</p>
+<ul>
+<li>The weighted average length should not exceed 7 years.</li>
+<li>The weighted average risk coefficient should not exceed five.</li>
+<li>The weighted average growth potential should be at least 10%.</li>
+<li>The investment in real estate should be no more than twice the investment in stocks and bonds (i.e., in CS, CB, and GF) combined.</li>
+</ul>
+<ol type="i">
+<li>What are the optimal return and the optimal allocation of investment funds? (Give the optimal return in dollars and also as a percentage.)</li>
+<li>What is the marginal rate of return? In other words, what would be the return on the next dollar invested if there were one more dollar in the portfolio?</li>
+<li>For additional investment beyond the original $3 million, how does the optimal allocation change?</li>
+</ol></li>
+</ol>
+<hr>
+<ol start="5" type="1">
+<li><p>An oil company produces three brands of oil: regular, multigrade, and supreme. Each brand of oil is composed of one or more of four crude stocks, each having a different lubrication index. The relevant data concerning the crude stocks are as follows.</p>
+<table class="table-light table">
+<caption><strong>Crude stock characteristics</strong></caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Crude Stock</th>
+<th style="text-align: center;">Lubrication Index</th>
+<th style="text-align: center;">Cost ($/Barrel)</th>
+<th style="text-align: center;">Daily Supply (Barrels)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">7.1</td>
+<td style="text-align: center;">1000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">8.5</td>
+<td style="text-align: center;">1100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">7.7</td>
+<td style="text-align: center;">1200</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">1100</td>
+</tr>
+</tbody>
+</table>
+<p>Each brand of oil must meet a minimum standard for a lubrication index, and each brand thus sells at a different price. The relevant data concerning the three brands of oil are as follows.</p>
+<table class="table-light table">
+<caption><strong>Brand requirements</strong></caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Brand</th>
+<th style="text-align: center;">Minimum Lubrication Index</th>
+<th style="text-align: center;">Selling Price ($/Barrel)</th>
+<th style="text-align: center;">Daily Demand (Barrels)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Regular</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">8.5</td>
+<td style="text-align: center;">2000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Multigrade</td>
+<td style="text-align: center;">35</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">1500</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Supreme</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">750</td>
+</tr>
+</tbody>
+</table>
+<p>The task is to determine an optimal output plan for a single day, assuming that production can be either sold or else stored at negligible cost. The daily demand figures are subject to alternative interpretations. Investigate the following.</p>
+<ol type="i">
+<li>The daily demands represent potential sales. In other words, the model should contain demand ceilings (upper limits). What is the optimal profit?</li>
+<li>The daily demands are strict obligations. In other words, the model should contain demand constraints that are met precisely. What is the optimal profit?</li>
+<li>The daily demands represent minimum sales commitments, but all output can be sold. In other words, the model should permit production to exceed the daily commitments. What is the optimal profit?</li>
+</ol></li>
+</ol>
+<hr>
+<ol start="6" type="1">
+<li><p>A Coffee Company blends four component beans into three final blends of coffee: one is sold to luxury hotels, another to restaurants, and the third to supermarkets for store-label brands. The company has four reliable bean supplies: Argentine, Peruvian, Brazilian, and Chilean. The table below summarizes the very precise recipes for the final coffee blends, the cost and weekly availability information for the four components, and the wholesale price per pound of the final blends. the percentages indicate the fraction of each component to be used in each blend.</p>
+<table class="table-light table">
+<caption><strong>Bean blends into final coffees</strong></caption>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: center;">Hotel</th>
+<th style="text-align: center;">Restaurant</th>
+<th style="text-align: center;">Market</th>
+<th style="text-align: center;">Cost per pound ($)</th>
+<th style="text-align: center;">Pounds Available</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Argentine</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">35%</td>
+<td style="text-align: center;">10%</td>
+<td style="text-align: center;">$0.60</td>
+<td style="text-align: center;">40,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Peruvian</td>
+<td style="text-align: center;">40%</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">35%</td>
+<td style="text-align: center;">$0.80</td>
+<td style="text-align: center;">25,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brazilian</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">40%</td>
+<td style="text-align: center;">$0.55</td>
+<td style="text-align: center;">20,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chilean</td>
+<td style="text-align: center;">25%</td>
+<td style="text-align: center;">30%</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">$0.70</td>
+<td style="text-align: center;">45,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wholesale price per pound</td>
+<td style="text-align: center;">$1.25</td>
+<td style="text-align: center;">$1.50</td>
+<td style="text-align: center;">$1.40</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>The processor’s plant can handle no more than 100,000 pounds per week, and the company would like to operate at or near capacity, if possible. Selling the final blends is not a problem, although the marketing department requires minimum production levels of 10,000, 25,000, and 30,000 pounds, respectively, for the hotel, restaurant, and market blends.</p>
+<ol type="i">
+<li>To maximize weekly profit, how many pounds of each component should be purchased?</li>
+<li>How would the optimal profit change if there were a 1000-pound increase in the availability of Argentine beans? Peruvian? Brazilian? Chilean?</li>
+</ol></li>
+</ol>
+<hr>
+<ol start="7" type="1">
+<li><p>An Auto Company produces four types of cars: subcompact, compact, intermediate, and luxury. It also produces trucks and vans. Vendor capacities limit total production capacity to at most 1,200,000 vehicles per year. Subcompacts and compacts are built together in a facility with a total annual capacity of 620,000 cars. Intermediate and luxury cars are produced in another facility with capacity of 400,000; and the truck/van facility has a capacity of 275,000. It’s marketing strategy requires that subcompacts and compacts must constitute at least half of the product mix for the four car types. Profit margins, market potential, and fuel efficiency are summarized below.</p>
+<table class="table-light table">
+<caption><strong>Requirements by vehicle</strong></caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Type</th>
+<th style="text-align: center;">Profit Margin ($/Vehicle)</th>
+<th style="text-align: center;">Potential Sales</th>
+<th style="text-align: center;">Fuel Efficiency (mpg)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Subcompact</td>
+<td style="text-align: center;">$1,500</td>
+<td style="text-align: center;">600,000</td>
+<td style="text-align: center;">40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Compact</td>
+<td style="text-align: center;">$2,250</td>
+<td style="text-align: center;">400,000</td>
+<td style="text-align: center;">34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Intermediate</td>
+<td style="text-align: center;">$2,500</td>
+<td style="text-align: center;">300,000</td>
+<td style="text-align: center;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Luxury</td>
+<td style="text-align: center;">$4,000</td>
+<td style="text-align: center;">225,000</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Truck</td>
+<td style="text-align: center;">$4,000</td>
+<td style="text-align: center;">325,000</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Van</td>
+<td style="text-align: center;">$2,000</td>
+<td style="text-align: center;">100,000</td>
+<td style="text-align: center;">25</td>
+</tr>
+</tbody>
+</table>
+<p>The Corporate Average Fuel Efficiency (CAFE) standards require an average fleet fuel efficiency of at least 27 MPG. The company would like to use a linear programming model to understand the implications of government and corporate policies on its production plans.</p>
+<ol type="i">
+<li>What is the optimal annual profit for the company?</li>
+<li>How much would the annual profit drop if the fuel efficiency requirement were raised to 28 MPG?</li>
+</ol></li>
+</ol>
+<hr>
+<ol start="8" type="1">
+<li><p>A sudden increase in the demand for smoke detectors has left an alarm company with insufficient capacity to meet demand. The company has seen monthly demand for its electronic and battery-operated detectors rise to 20,000 and 10,000, respectively, and they wish to continue meeting demand. The production process involves three departments: fabrication, assembly, and shipping. The relevant quantitative data on production and prices are summarized below.</p>
+<table class="table-light table">
+<caption><strong>Production and pricing data</strong></caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Department</th>
+<th style="text-align: center;">Monthly Hours Available</th>
+<th style="text-align: center;">Hours/Unit (Electronic)</th>
+<th style="text-align: center;">Hours/Unit (Battery)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Fabrication</td>
+<td style="text-align: center;">2000</td>
+<td style="text-align: center;">600,000</td>
+<td style="text-align: center;">40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Assembly</td>
+<td style="text-align: center;">4200</td>
+<td style="text-align: center;">400,000</td>
+<td style="text-align: center;">34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Shipping</td>
+<td style="text-align: center;">2500</td>
+<td style="text-align: center;">300,000</td>
+<td style="text-align: center;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Variable cost/unit</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">$18.80</td>
+<td style="text-align: center;">$16.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Retail Price</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">$29.50</td>
+<td style="text-align: center;">$28.00</td>
+</tr>
+</tbody>
+</table>
+<p>The company also has the option to obtain additional units from a subcontractor, who has offered to supply up to 20,000 units per month in any combination of electronic and battery-operated models, at a charge of $21.50 per unit. For this price, the subcontractor will test and ship its models directly to the retailers without using Acme’s production process.</p>
+<ol type="i">
+<li>What are the maximum profit and the corresponding make/buy levels? (This is a planning model, and fractional decisions are acceptable.)</li>
+<li>Trace the effects of increasing fabrication capacity by 10%. How will the optimal make/buy mix change? How will the optimal profit change?</li>
+</ol></li>
+</ol>
+<hr>
+<ol start="9" type="1">
+<li><p>Cox Cable Company needs to lease warehouse storage space for 5 months at the start of the year. It knows how much space will be required in each month, and it can purchase a variety of lease contracts to meet these needs. For example, it can purchase 1 -month leases in each month from January to May. It can also purchase 2-month leases in January through April, 3-month leases in January through March, 4-month leases in January and February, or a 5-month lease in January. In total, there are 15 possible leases it could use. It must decide which leases to purchase and how many square feet to purchase on each lease.</p>
+<p>Since the space requirements differ month to month, it may be economical to lease only the amount needed each month on a month-by-month basis. On the other hand, the monthly cost for leasing space for additional months is much less than for the first month, so it may be desirable to lease the maximum amount needed for the entire 5 months. Another option is the intermediate approach of changing the total amount of space leased (by adding a new lease and/or having an old lease expire) at least once but not every month. Two or more leases for different terms can begin at the same time.</p>
+<p>The space requirements (in square feet) and the leasing costs (in dollars per thousand square feet) are given in the two tables below.</p>
+<table class="table-light table">
+<caption><strong>Space Requirements (sq ft)</strong></caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Month</th>
+<th style="text-align: center;">Jan</th>
+<th style="text-align: center;">Feb</th>
+<th style="text-align: center;">Mar</th>
+<th style="text-align: center;">Apr</th>
+<th style="text-align: center;">May</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Requirements</td>
+<td style="text-align: center;">15.000</td>
+<td style="text-align: center;">10,000</td>
+<td style="text-align: center;">20,000</td>
+<td style="text-align: center;">5,000</td>
+<td style="text-align: center;">25,000</td>
+</tr>
+</tbody>
+</table>
+<table class="table-light table">
+<caption><strong>Leasing costs ($/000 sf</strong></caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Lease length</th>
+<th style="text-align: center;">1 month</th>
+<th style="text-align: center;">2 months</th>
+<th style="text-align: center;">3 months</th>
+<th style="text-align: center;">4 months</th>
+<th style="text-align: center;">5 months</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Lease cost</td>
+<td style="text-align: center;">280</td>
+<td style="text-align: center;">450</td>
+<td style="text-align: center;">600</td>
+<td style="text-align: center;">730</td>
+<td style="text-align: center;">820</td>
+</tr>
+</tbody>
+</table>
+<p>The task is to find a leasing schedule that provides the necessary amounts of space at the minimum cost.</p>
+<ol type="i">
+<li>Determine the optimal leasing schedule and the optimal total cost.</li>
+<li>Trace the effects of increasing the space required for January. How will the leasing schedule change? How will the total cost change?</li>
+</ol></li>
+</ol>
+<hr>
+<ol start="10" type="1">
+<li><p>A Tire Company produces four lines of tires: the economy, the glass-belted, the snow, and the radial tire. The problem it faces is to schedule two shifts of production during the last quarter of the calendar year. The production process primarily involves the use of vulcanization, fabrication, and plastometer equipment, but the limiting resource is the availability of the vulcanization machines. The four tire lines require different amounts of time at vulcanization, as tabulated below.</p>
+<table class="table-light table">
+<caption><strong>Vulcanization time required</strong></caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tire</th>
+<th style="text-align: center;">Economy</th>
+<th style="text-align: center;">Glass</th>
+<th style="text-align: center;">Snow</th>
+<th style="text-align: center;">Radial</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hours/tire</td>
+<td style="text-align: center;">4.5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5.5</td>
+<td style="text-align: center;">6</td>
+</tr>
+</tbody>
+</table>
+<p>A sales forecast is available, breaking down predicted sales by tire type and by month.</p>
+<table class="table-light table">
+<caption><strong>Sales forecast</strong></caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sales</th>
+<th style="text-align: center;">October</th>
+<th style="text-align: center;">November</th>
+<th style="text-align: center;">December</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Econ.</td>
+<td style="text-align: center;">8,000</td>
+<td style="text-align: center;">7,000</td>
+<td style="text-align: center;">6,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Glass</td>
+<td style="text-align: center;">18,000</td>
+<td style="text-align: center;">16,000</td>
+<td style="text-align: center;">18,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Snow</td>
+<td style="text-align: center;">4,000</td>
+<td style="text-align: center;">15,000</td>
+<td style="text-align: center;">15,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Radial</td>
+<td style="text-align: center;">6,000</td>
+<td style="text-align: center;">5,000</td>
+<td style="text-align: center;">8,000</td>
+</tr>
+</tbody>
+</table>
+<p>In addition, the number of hours of vulcanizing time, for each shift and for each month, is also known.</p>
+<table class="table-light table">
+<caption><strong>Hours vulcanizing time required by shift</strong></caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">October</th>
+<th style="text-align: center;">November</th>
+<th style="text-align: center;">December</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Shift 1</td>
+<td style="text-align: center;">110,000</td>
+<td style="text-align: center;">130,000</td>
+<td style="text-align: center;">120,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Shift 2</td>
+<td style="text-align: center;">100,000</td>
+<td style="text-align: center;">120,000</td>
+<td style="text-align: center;">115,000</td>
+</tr>
+</tbody>
+</table>
+<p>The labor cost of operating the vulcanizing machines is $10 per hour during the first shift and $14 per hour during the second shift. The other relevant cost is storage: It costs $4 per month for storage and handling at the warehouse, regardless of tire type. This cost is incurred when production is scheduled in advance of demand to ensure that demand is met on time.</p>
+<ol type="i">
+<li>What production plan will minimize cost and meet demand at Seaboch Tire?</li>
+<li>How would the solution in (a) change if sales for each tire in December were 10% higher?</li>
+</ol></li>
+</ol>
+<hr>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./OM1_LPandGraphical.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">OM1 - Linear Programming Intro</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

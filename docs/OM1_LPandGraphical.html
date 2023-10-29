@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Q4B - Optimization Modeling I</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./OM2_LPexamples.html" rel="next">
+<link href="./ProjectManagement.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./DecisionTheory.html">Course information</a></li><li class="breadcrumb-item"><a href="./OM1_LPandGraphical.html">OM1 - Linear Programming Intro</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/logoQ4B.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/bmcquaid1959/Q4B" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="quarto-navigation-tool px-1" aria-label="RStudio Containers"><i class="bi bi-code-square"></i></a>
+    <div class="dropdown">
+      <a href="" title="Sakai" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Sakai"><i class="bi bi-person-fill"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/13b6446a-a6c6-4222-8cfb-c36d1f70802b">
+            Discussion forum
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/page/aec742dc-2972-4f02-a35b-1dd3315af889">
+            Gradescope
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/69078433-67a6-4054-a2e7-9e6c202ecdc3/">
+            Gradebook
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course information</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./DecisionTheory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Decision Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ProjectManagement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project Management</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./OM1_LPandGraphical.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">OM1 - Linear Programming Intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./OM2_LPexamples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OM2 - Linear Programming Examples</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#linear-programming-and-graphical-solutions" id="toc-linear-programming-and-graphical-solutions" class="nav-link active" data-scroll-target="#linear-programming-and-graphical-solutions"><span class="header-section-number">1</span> Linear Programming and Graphical solutions</a>
+  <ul class="collapse">
+  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><span class="header-section-number">1.1</span> Readings</a></li>
+  <li><a href="#async-lecture" id="toc-async-lecture" class="nav-link" data-scroll-target="#async-lecture"><span class="header-section-number">1.2</span> Async Lecture</a></li>
+  <li><a href="#video-examples" id="toc-video-examples" class="nav-link" data-scroll-target="#video-examples"><span class="header-section-number">1.3</span> Video examples</a>
+  <ul class="collapse">
+  <li><a href="#using-excel-solver-add-in" id="toc-using-excel-solver-add-in" class="nav-link" data-scroll-target="#using-excel-solver-add-in"><span class="header-section-number">1.3.1</span> Using Excel Solver Add-in</a></li>
+  <li><a href="#graphical-solution-methods" id="toc-graphical-solution-methods" class="nav-link" data-scroll-target="#graphical-solution-methods"><span class="header-section-number">1.3.2</span> Graphical solution methods</a></li>
+  </ul></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises"><span class="header-section-number">1.4</span> Practice Exercises</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bmcquaid1959/Q4B/edit/main/OM1_LPandGraphical.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bmcquaid1959/Q4B/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Optimization Modeling I</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="linear-programming-and-graphical-solutions" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Linear Programming and Graphical solutions</h1>
+<section id="readings" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="readings"><span class="header-section-number">1.1</span> Readings</h2>
+<p><a href="https://pepperdine.on.worldcat.org/oclc/905668049">Optimization Modeling with Spreadsheets</a></p>
+<p>Chapter 1 - <a href="https://lib.pepperdine.edu/login?url=https://search.ebscohost.com/login.aspx?direct=true&amp;AuthType=ip,url,uid,cookie&amp;db=nlebk&amp;AN=1016321&amp;site=ehost-live&amp;scope=site&amp;ebv=EB&amp;ppid=pp_1">Introduction to Spreadsheet Models for Optimization</a></p>
+<ol type="1">
+<li>Elements of a Model</li>
+<li>Spreadsheet Model</li>
+<li>A Hierarchy for Analysis</li>
+<li>Optimization Software - we use the Excel Solver provided with Excel</li>
+<li>Using Solver</li>
+</ol>
+<p><a href="https://www.tutorialspoint.com/excel_data_analysis/advanced_data_analysis_optimization_with_excel_solver.htm">Optimization with Excel Solver</a> - Tutorials Point</p>
+<p><a href="https://www.simplilearn.com/tutorials/excel-tutorial/solver-in-excel">How to Use Solver in Excel to Optimize Your Solution?</a> - SimpliLearn</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Additional Resources
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Excel 2013 Bible - John Walkenbach - <a href="https://archive.org/details/Excel2013Bible/mode/2up">Archive eBook</a></p>
+<p>Excel 2013 Formulas - John Walkenback - <a href="https://pepperdine.on.worldcat.org/oclc/960202626">Pepperdine eBook</a></p>
+</div>
+</div>
+</div>
+</section>
+<section id="async-lecture" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="async-lecture"><span class="header-section-number">1.2</span> Async Lecture</h2>
+<p>Should be viewed <strong>PRIOR</strong> to live session</p>
+<iframe src="https://pepperdine.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=de15e3e1-6938-4422-8c26-b0aa0000f661&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</section>
+<section id="video-examples" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="video-examples"><span class="header-section-number">1.3</span> Video examples</h2>
+<section id="using-excel-solver-add-in" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="using-excel-solver-add-in"><span class="header-section-number">1.3.1</span> Using Excel Solver Add-in</h3>
+<section id="excel-solver---example-and-step-by-step-explanation" class="level4" data-number="1.3.1.1">
+<h4 data-number="1.3.1.1" class="anchored" data-anchor-id="excel-solver---example-and-step-by-step-explanation"><span class="header-section-number">1.3.1.1</span> Excel Solver - Example and Step-By-Step Explanation</h4>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/dRm5MEoA3OI?si=TJuS9YqxpkqC7spV" width="640" height="360" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="linear-programming-solver-excel" class="level4" data-number="1.3.1.2">
+<h4 data-number="1.3.1.2" class="anchored" data-anchor-id="linear-programming-solver-excel"><span class="header-section-number">1.3.1.2</span> Linear Programming Solver Excel</h4>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/1RrzqqYlbtA?si=QLunaYI8SSxbG1sk" width="640" height="360" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="linear-optimization-in-excel-with-solver-add-in-lpp-in-excel" class="level4" data-number="1.3.1.3">
+<h4 data-number="1.3.1.3" class="anchored" data-anchor-id="linear-optimization-in-excel-with-solver-add-in-lpp-in-excel"><span class="header-section-number">1.3.1.3</span> Linear Optimization in Excel with Solver Add-in | LPP in Excel</h4>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/AUhFvjqOU1U?si=5UpZ9A24zEi6_-aZ" width="640" height="360" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+</section>
+<section id="graphical-solution-methods" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="graphical-solution-methods"><span class="header-section-number">1.3.2</span> Graphical solution methods</h3>
+<section id="how-to-solve-an-lp-problem-graphically-in-excel" class="level4" data-number="1.3.2.1">
+<h4 data-number="1.3.2.1" class="anchored" data-anchor-id="how-to-solve-an-lp-problem-graphically-in-excel"><span class="header-section-number">1.3.2.1</span> How to Solve an LP Problem Graphically in Excel</h4>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/pQp4GZfoxTo?si=keyiavhcjxryu4kQ" width="640" height="360" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="how-to-solve-an-lpp-problem-using-excel---graphical-method" class="level4" data-number="1.3.2.2">
+<h4 data-number="1.3.2.2" class="anchored" data-anchor-id="how-to-solve-an-lpp-problem-using-excel---graphical-method"><span class="header-section-number">1.3.2.2</span> How to solve an LPP Problem using Excel - Graphical Method</h4>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/O9BwIJpymio?si=Gu_oucq_SqxShREW" width="640" height="360" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+</section>
+</section>
+<section id="practice-exercises" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="practice-exercises"><span class="header-section-number">1.4</span> Practice Exercises</h2>
+<ol type="1">
+<li><p>A firm’s marketing department has estimated the demand curve of a product as <em>y</em> = 1100 − 7<em>x</em>, where <em>y</em> represents demand and <em>x</em> represents the unit selling price (in dollars) for the relevant decision period. The unit cost is known to be $24. What price maximizes net income from sales of the product?</p></li>
+<li><p>A manufacturer has been making an electronic appliance for the domestic market. Demand for the appliance is price sensitive, and the demand curve is known to follow the linear function D=4000−5P, where D represents annual demand and P represents selling price in the home currency, which is the frank (F). The cost of manufacturing the appliance is 100F.</p>
+<p>For the coming year, the manufacturer is planning to sell the same product in a foreign market, where the currency is the marc (M). From surveys, the demand curve in the foreign country is estimated to follow a different linear function, D = 2000 − 2P, where the price is denominated in marcs.</p>
+<p>All production will be carried out at the manufacturer’s domestic plant, with the expectation that the unit cost will remain unchanged. The exchange rate is 1.5 M/F, and the manufacturer plans to offer an equivalent price in both markets.</p>
+<ol type="i">
+<li><p>If the manufacturer were to operate exclusively in its domestic market, what would be its profit‐maximizing price and its annual profit?</p></li>
+<li><h2 id="when-the-manufacturer-sells-in-both-markets-at-one-equivalent-price-what-is-its-profitmaximizing-price-and-its-annual-profit" data-number="1.5" class="anchored"><span class="header-section-number">1.5</span> When the manufacturer sells in both markets at one equivalent price, what is its profit‐maximizing price and its annual profit?</h2></li>
+</ol></li>
+<li><p>A supply company is a wholesale distributor of components for printers, fax machines, scanners, and related equipment. The company stocks expensive spare parts, which dealers prefer not to hold, and offers same‐day delivery on any order. The firm now serves eight dealers in the region and wishes to locate its distribution facility at a central point. In particular, its dealers have each been assigned a location on an x−y grid, and the company would like to find the best location for the distribution facility.</p>
+<ol type="i">
+<li>determine the location that minimizes the sum of the distances from the distribution facility to the dealers.</li>
+<li>determine the location that minimizes the maximum distance from the distribution facility to any of the dealers.</li>
+</ol>
+<p>The eight dealers and their grid locations are shown in the following table:</p>
+<table class="table">
+<caption><strong>Dealer locations</strong> {.light} —</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dealer</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">X-location</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">82</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">93</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">68</td>
+<td style="text-align: center;">147</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">y-location</td>
+<td style="text-align: center;">325</td>
+<td style="text-align: center;">365</td>
+<td style="text-align: center;">715</td>
+<td style="text-align: center;">585</td>
+<td style="text-align: center;">685</td>
+<td style="text-align: center;">163</td>
+<td style="text-align: center;">149</td>
+<td style="text-align: center;">192</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>An appliance dealer offers free delivery in any one of its five Texas cities, which will be serviced by a single warehouse. The distance from the warehouse site to a given city is considered to be a good proxy for the annual cost of providing delivery service, and the objective is to minimize the total distance from the warehouse to the five cities. The cities are treated as if they were each a single point located at a specific latitude and longitude, as listed in the table below.</p>
+<p>When locations are specified in terms of latitude (<em>Lat</em>) and longitude (<em>Lon</em>), a good approximation for the distance (in miles) between two locations is the following: <span class="math display">\[
+   Distance = \sqrt{(x^2 + y^2)}
+   \]</span></p>
+<table class="table-light table">
+<caption><strong>City Locations</strong></caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">City</th>
+<th style="text-align: center;">Austin</th>
+<th style="text-align: center;">Houston</th>
+<th style="text-align: center;">Midland</th>
+<th style="text-align: center;">Tyler</th>
+<th style="text-align: center;">Waco</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Latitude</td>
+<td style="text-align: center;">30.3</td>
+<td style="text-align: center;">30.0</td>
+<td style="text-align: center;">32.0</td>
+<td style="text-align: center;">32.4</td>
+<td style="text-align: center;">31.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Longitude</td>
+<td style="text-align: center;">97.9</td>
+<td style="text-align: center;">95.4</td>
+<td style="text-align: center;">102.2</td>
+<td style="text-align: center;">95.4</td>
+<td style="text-align: center;">97.2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-is-the-best-location-latitude-and-longitude-for-the-warehouse" data-number="1.6" class="anchored"><span class="header-section-number">1.6</span> What is the best location (latitude and longitude) for the warehouse?</h2></li>
+<li><p>A private plane went down off the coast and sank during a bad storm although rescuers were able to save its crew. Aboard the plane was a transmitter that was able to send out a signal for 72 hours after the plane wentdown. When the weather cleared, searchers went out in three different boats carrying equipment that could detect the signal and estimate its distance from the transmitter. The locations of the three boats on an <em>x</em>−<em>y</em> grid and their distance estimates (in miles) are shown in the table below.</p>
+<table class="table-light table">
+<caption><strong>Boat Locations</strong></caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Searcher</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">x-location</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">35</td>
+<td style="text-align: center;">70</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">y-location</td>
+<td style="text-align: center;">60</td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Estimate</td>
+<td style="text-align: center;">29.3</td>
+<td style="text-align: center;">34.7</td>
+<td style="text-align: center;">15.5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-estimates-are-known-to-be-unreliable-but-the-information-may-sufficient-to-locate-the-sunken-plane-at-least-approximately.-what-is-its-xylocation" data-number="1.7" class="anchored"><span class="header-section-number">1.7</span> The estimates are known to be unreliable, but the information may sufficient to locate the sunken plane, at least approximately. What is its <em>x</em>−<em>y</em>‐location?</h2></li>
+<li><p>A bank offers a credit card that can be used in various locations. The bank’s analysts believe that the percentage P of accounts receivable collected by t months after credit is issued increases at a decreasing rate. Historical data suggest the following function: <span class="math display">\[
+P=0.9(1-e^{-0.6t})
+\]</span></p>
+<p>The average credit issued in any 1 month is $125 million, and historical experience suggests that for new credit issued in any month, collection efforts cost $1 million/month.</p>
+<ol type="i">
+<li><p>determine the number of months that collection efforts should be continued if the objective is to maximize the net collections (dollars collected minus collection costs). Allow for fractional months.</p></li>
+<li><h2 id="under-the-optimal-policy-in-1-what-percentage-of-accounts-receivable-should-be-collected" data-number="1.8" class="anchored"><span class="header-section-number">1.8</span> under the optimal policy in (1), what percentage of accounts receivable should be collected?</h2></li>
+</ol></li>
+<li><p>A firm owns five manufacturing plants that are responsible for the quarterly production of 50,000 pounds of an industrial solvent. The production process exhibits diseconomies of scale. At plant <em>p</em>, the cost of making <em>x</em> thousand pounds of the solvent is approximated by the quadratic function <span class="math inline">\(f(x)=(1/c_p)x^2\)</span> . The parameters <span class="math inline">\(c_p\)</span> are plant dependent, as shown in the following table.</p>
+<table class="table-light table">
+<caption><span class="math inline">\(c_p\)</span> by plant</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">p</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(c_p\)</span></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-should-production-be-allocated-among-the-five-plants-in-order-to-minimize-the-total-cost-of-meeting-the-volume-requirement" data-number="1.9" class="anchored"><span class="header-section-number">1.9</span> How should production be allocated among the five plants in order to minimize the total cost of meeting the volume requirement?</h2></li>
+<li><p>Four products are routed through a machining center that is notorious for its delays. Each product has had stable demand for some time, so that average weekly demand is predictable over a 3–6 months’ time frame. however, in the short run, demand fluctuates a great deal, and the load at the machining center varies considerably. The production control system dictates the lot size for each of the products. These quantities are shown, along with other relevant information, in the following table.</p>
+<table class="table-light table">
+<caption><strong>Production information by product</strong></caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Product No.</th>
+<th style="text-align: center;">Demand (weekly)</th>
+<th style="text-align: center;">Setup (hours)</th>
+<th style="text-align: center;">Run time (hrs/thousand)</th>
+<th style="text-align: center;">Lot size</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: center;">500</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">500</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">75</td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: center;">250</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">150</td>
+<td style="text-align: center;">1500</td>
+</tr>
+</tbody>
+</table>
+<p>With the current lot sizes, the machining center is running at a utilization of about 76%, but long lead times, sometimes over 2 weeks, have discouraged production planners from increasing its load. (A week contains 120 productive hours.) In the past, lead times spiraled out of control when utilization grew to around 80%.</p>
+<p>A <a href="files/LeadTimeModel-Baker1_6.xlsx">lead time model</a> for this problem has been constructed on a spreadsheet. The model permits the user to select lot sizes and thereby influence the average lead time through the bottleneck work center. The lead time prediction is based on advanced modeling techniques, but the details of the model are not of primary importance.</p>
+<h2 id="what-is-the-shortest-possible-lead-time-and-what-lot-sizes-achieve-this-value" data-number="1.10" class="anchored"><span class="header-section-number">1.10</span> What is the shortest possible lead time, and what lot sizes achieve this value?</h2></li>
+<li><h2 id="a-library-building-is-about-to-undergo-some-renovations-that-will-improve-its-structural-integrity.-as-part-of-the-process-a-number-of-steel-beams-will-be-carried-through-the-existing-book-cases-from-a-broad-open-area-around-the-entry-point.-the-central-aisle-between-the-bookcases-is-10-feet-wide-while-the-side-aisles-which-run-perpendicular-to-the-central-aisle-are-6-ft-wide.-the-renovation-will-require-that-steel-beams-be-carried-through-the-stacks-down-the-main-aisle-and-turning-into-the-smaller-aisles.-what-is-the-longest-steel-beam-that-can-be-carried-horizontally-through-this-space-to-a-construction-point-along-the-outer-walls" data-number="1.11" class="anchored"><span class="header-section-number">1.11</span> A library building is about to undergo some renovations that will improve its structural integrity. As part of the process, a number of steel beams will be carried through the existing book cases from a broad, open area around the entry point. The central aisle between the bookcases is 10 feet wide, while the side aisles (which run perpendicular to the central aisle) are 6 ft wide. The renovation will require that steel beams be carried through the stacks, down the main aisle and turning into the smaller aisles. What is the longest steel beam that can be carried horizontally through this space to a construction point along the outer walls?</h2></li>
+<li><p>The customers of a particular company are located throughout an area comprised of <strong>S</strong> square miles, and they are serviced from <strong>k</strong> warehouses. On average, the distance in miles between a warehouse and customer is given by the formula <span class="math inline">\(\sqrt{(S/k)}\)</span>. The annual capital cost of building a warehouse is $40,000 and the annual operating cost of running a warehouse is $60,000. Annual shipping costs average $1 per mile per customer. Suppose that the current market size is 250,000 customers, spread out over an area of 500 square miles. What is the optimal number of warehouses for the firm to operate?</p></li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ProjectManagement.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Project Management</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./OM2_LPexamples.html" class="pagination-link">
+        <span class="nav-page-text">OM2 - Linear Programming Examples</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
